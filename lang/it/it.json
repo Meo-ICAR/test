@@ -1,0 +1,21 @@
+{
+    "Pending": "In attesa",
+    "Paid": "Pagato",
+    "Cancelled": "Annullato",
+    "Product": "Prodotto",
+    "Products": "Prodotti",
+    "Order": "Ordine",
+    "Orders": "Ordini",
+    "Amount": "Importo",
+    "Description": "Descrizione",
+    "Duration (Months)": "Durata (Mesi)",
+    "Status": "Stato",
+    "Activated At": "Attivato il",
+    "Expires At": "Scadenza",
+    "Pay with Postepay/Stripe": "Paga con Postepay o Carta",
+    "Subscription active": "Abbonamento attivo",
+    "Subscription expired": "Abbonamento scaduto",
+    "Name": "Nome",
+    "Price": "Prezzo",
+    "Created At": "Data creazione"
+}
