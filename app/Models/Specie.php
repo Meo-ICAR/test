@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class AnimalSpecie extends Model
+class Specie extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -46,7 +45,7 @@ class AnimalSpecie extends Model
      */
     public function animals(): HasMany
     {
-        return $this->hasMany(Animal::class, 'animal_species_id');
+        return $this->hasMany(Animal::class, 'species_id');
     }
 
     /**
