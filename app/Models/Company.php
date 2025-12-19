@@ -40,4 +40,14 @@ class Company extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
+
+    // app/Models/Company.php
+public function users()
+{
+    return $this->hasMany(User::class);
+}
+public function profiles()
+{
+    return $this->hasMany(Profile::class);
+}
 }

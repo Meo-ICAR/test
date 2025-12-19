@@ -7,6 +7,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class ProfileForm
 {
@@ -14,9 +15,12 @@ class ProfileForm
     {
         return $schema
             ->components([
-                Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->required(),
+                SpatieMediaLibraryFileUpload::make('face')
+   ->collection('covers') // Nome della collezione Spatie
+                ->image()             // Valida come immagine
+                ->conversion('thumb') // Usa una conversione specifica (opzionale)
+                ->responsiveImages()  // Attiva immagini responsive (opzionale)
+                ->multiple(),         // Se vuoi permettere più caricamenti
                 TextInput::make('phone')
                     ->tel(),
                 TextInput::make('stage_name'),

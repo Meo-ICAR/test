@@ -1,58 +1,45 @@
 <?php
 
-namespace App\Filament\Resources\Profiles\Tables;
+namespace App\Filament\Resources\Companies\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreBulkAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
-class ProfilesTable
+class CompaniesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-              SpatieMediaLibraryImageColumn::make('viso')
-    ->collection('covers')
-    ->responsiveImages()
-    ->conversion('thumb') ,// Carica la versione da 200px nella lista, molto più veloce!
+                TextColumn::make('name')
+                    ->searchable(),
+                TextColumn::make('email')
+                    ->label('Email address')
+                    ->searchable(),
                 TextColumn::make('phone')
                     ->searchable(),
-                TextColumn::make('stage_name')
-                    ->searchable(),
-                TextColumn::make('slug')
-                    ->searchable(),
-                TextColumn::make('birth_date')
-                    ->date()
-                    ->sortable(),
-                TextColumn::make('gender')
+                TextColumn::make('website')
                     ->searchable(),
                 TextColumn::make('city')
                     ->searchable(),
                 TextColumn::make('country')
                     ->searchable(),
-                TextColumn::make('province')
+                TextColumn::make('postal_code')
                     ->searchable(),
-                TextColumn::make('height_cm')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('weight_kg')
-                    ->numeric()
-                    ->sortable(),
-                IconColumn::make('is_visible')
-                    ->boolean(),
-                TextColumn::make('scene_nudo')
-                    ->badge(),
-                IconColumn::make('consenso_privacy')
-                    ->boolean(),
-                IconColumn::make('is_represented')
-                    ->boolean(),
-                TextColumn::make('agency_name')
+                TextColumn::make('vat_number')
+                    ->searchable(),
+                TextColumn::make('tax_code')
+                    ->searchable(),
+                TextColumn::make('pec')
+                    ->searchable(),
+                TextColumn::make('sdi_code')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -62,9 +49,13 @@ class ProfilesTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('deleted_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                TrashedFilter::make(),
             ])
             ->recordActions([
                 ViewAction::make(),
@@ -73,6 +64,8 @@ class ProfilesTable
             ->toolbarActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
+                    ForceDeleteBulkAction::make(),
+                    RestoreBulkAction::make(),
                 ]),
             ]);
     }

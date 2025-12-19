@@ -106,4 +106,10 @@ class Profile extends Model implements HasMedia
             ->format('webp') // Converte in WebP per risparmiare spazio
             ->quality(80);
     }
+
+    // app/Models/Profile.php
+public function company()
+{
+    return $this->belongsTo(Company::class);
+}
 }
