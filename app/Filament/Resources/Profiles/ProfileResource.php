@@ -1,5 +1,5 @@
 <?php
-
+// FIX: rm storage & ln -s ../storage/app/public storage per vedere immagini nei form
 namespace App\Filament\Resources\Profiles;
 
 use App\Filament\Resources\Profiles\Pages\CreateProfile;
