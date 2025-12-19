@@ -47,6 +47,19 @@ class ProfileForm
                 Toggle::make('consenso_privacy'),
                 Toggle::make('is_represented'),
                 TextInput::make('agency_name'),
+                Select::make('tipologia_id')
+                    ->label('Tipologia')
+                    ->relationship('tipologia', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->required(),
+                        TextInput::make('role')
+                            ->required(),
+                        TextInput::make('icon')
+                            ->required(),
+                    ]),
             ]);
     }
 }

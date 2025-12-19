@@ -48,6 +48,9 @@ class ProfileInfolist
                 IconEntry::make('is_represented')
                     ->boolean()
                     ->placeholder('-'),
+                TextEntry::make('tipologia.name')
+                    ->label('Tipologia')
+                    ->placeholder('-'),
                 TextEntry::make('agency_name')
                     ->placeholder('-'),
                 TextEntry::make('created_at')

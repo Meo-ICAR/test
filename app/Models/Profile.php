@@ -39,6 +39,7 @@ class Profile extends Model implements HasMedia
         'consenso_privacy',
         'is_represented',
         'agency_name',
+        'tipologia_id',
     ];
 
     /**
@@ -108,8 +109,16 @@ class Profile extends Model implements HasMedia
     }
 
     // app/Models/Profile.php
-public function company()
-{
-    return $this->belongsTo(Company::class);
-}
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    /**
+     * Get the tipologia that owns the profile.
+     */
+    public function tipologia()
+    {
+        return $this->belongsTo(Tipologia::class);
+    }
 }

@@ -48,6 +48,10 @@ class ProfilesTable
                     ->boolean(),
                 TextColumn::make('scene_nudo')
                     ->badge(),
+                TextColumn::make('tipologia.name')
+                    ->label('Tipologia')
+                    ->sortable()
+                    ->searchable(),
                 IconColumn::make('consenso_privacy')
                     ->boolean(),
                 IconColumn::make('is_represented')
