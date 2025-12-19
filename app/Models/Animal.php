@@ -59,7 +59,7 @@ class Animal extends Model implements HasMedia
      */
     public function species(): BelongsTo
     {
-        return $this->belongsTo(AnimalSpecies::class, 'animal_species_id');
+        return $this->belongsTo(Specie::class, 'species_id');
     }
 
     /**
