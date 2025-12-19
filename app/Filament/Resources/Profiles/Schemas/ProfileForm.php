@@ -21,9 +21,10 @@ class ProfileForm
                // ->conversion('thumb') // Usa una conversione specifica (opzionale)
 //                ->responsiveImages()  // Attiva immagini responsive (opzionale)
            //     ->multiple(),         // Se vuoi permettere più caricamenti
-                TextInput::make('phone')
+              TextInput::make('stage_name'),
+           TextInput::make('phone')
                     ->tel(),
-                TextInput::make('stage_name'),
+
                 TextInput::make('slug'),
                 DatePicker::make('birth_date'),
                 TextInput::make('gender'),
