@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Profiles\Schemas;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class ProfileInfolist
 {
@@ -12,8 +13,13 @@ class ProfileInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('user.name')
-                    ->label('User'),
+              SpatieMediaLibraryFileUpload::make('face')
+   ->collection('covers') // Nome della collezione Spatie
+                ->image()  ,           // Valida come immagine
+               // ->conversion('thumb') // Usa una conversione specifica (opzionale)
+//                ->responsiveImages()  // Attiva immagini responsive (opzionale)
+           //     ->multiple(),         // Se vuoi permettere più caricamenti
+
                 TextEntry::make('phone')
                     ->placeholder('-'),
                 TextEntry::make('stage_name')

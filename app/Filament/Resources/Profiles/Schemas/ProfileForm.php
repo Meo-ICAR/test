@@ -17,10 +17,10 @@ class ProfileForm
             ->components([
                 SpatieMediaLibraryFileUpload::make('face')
    ->collection('covers') // Nome della collezione Spatie
-                ->image()             // Valida come immagine
-                ->conversion('thumb') // Usa una conversione specifica (opzionale)
-                ->responsiveImages()  // Attiva immagini responsive (opzionale)
-                ->multiple(),         // Se vuoi permettere più caricamenti
+                ->image()  ,           // Valida come immagine
+               // ->conversion('thumb') // Usa una conversione specifica (opzionale)
+//                ->responsiveImages()  // Attiva immagini responsive (opzionale)
+           //     ->multiple(),         // Se vuoi permettere più caricamenti
                 TextInput::make('phone')
                     ->tel(),
                 TextInput::make('stage_name'),

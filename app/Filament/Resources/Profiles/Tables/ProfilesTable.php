@@ -19,7 +19,7 @@ class ProfilesTable
             ->columns([
               SpatieMediaLibraryImageColumn::make('viso')
     ->collection('covers')
-    ->responsiveImages()
+ //   ->responsiveImages()
     ->conversion('thumb') ,// Carica la versione da 200px nella lista, molto più veloce!
                 TextColumn::make('phone')
                     ->searchable(),
