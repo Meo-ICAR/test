@@ -11,7 +11,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->validateCsrfTokens(except: [
+        'stripe/*', // Esclude tutte le rotte che iniziano con stripe/
+    ]);
+    $middleware->alias([
+        'is_subscribed' => \App\Http\Middleware\CheckSubscription::class,
+    ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
