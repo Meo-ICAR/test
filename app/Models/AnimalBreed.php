@@ -29,7 +29,7 @@ class AnimalBreed extends Model
      */
     public function species(): BelongsTo
     {
-        return $this->belongsTo(AnimalSpecies::class, 'species_id');
+        return $this->belongsTo(Specie::class, 'species_id');
     }
 
     /**

@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Resources\AnimalBrreds\Pages;
+namespace App\Filament\Resources\AnimalBreeds\Pages;
 
-use App\Filament\Resources\AnimalBrreds\AnimalBrredResource;
+use App\Filament\Resources\AnimalBreeds\AnimalBreedResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
-class EditAnimalBrred extends EditRecord
+class EditAnimalBreed extends EditRecord
 {
-    protected static string $resource = AnimalBrredResource::class;
+    protected static string $resource = AnimalBreedResource::class;
 
     protected function getHeaderActions(): array
     {
