@@ -2,14 +2,14 @@
 
 namespace App\Filament\Resources\Species;
 
-use App\Filament\Resources\AnimalSpecies\Pages\CreateAnimalSpecie;
-use App\Filament\Resources\AnimalSpecies\Pages\EditAnimalSpecie;
-use App\Filament\Resources\AnimalSpecies\Pages\ListAnimalSpecies;
-use App\Filament\Resources\AnimalSpecies\Pages\ViewAnimalSpecie;
-use App\Filament\Resources\AnimalSpecies\Schemas\AnimalSpecieForm;
-use App\Filament\Resources\AnimalSpecies\Schemas\AnimalSpecieInfolist;
-use App\Filament\Resources\AnimalSpecies\Tables\AnimalSpeciesTable;
-use App\Models\AnimalSpecie;
+use App\Filament\Resources\Species\Pages\CreateSpecie;
+use App\Filament\Resources\Species\Pages\EditSpecie;
+use App\Filament\Resources\Species\Pages\ListSpecies;
+use App\Filament\Resources\Species\Pages\ViewSpecie;
+use App\Filament\Resources\Species\Schemas\SpecieForm;
+use App\Filament\Resources\Species\Schemas\SpecieInfolist;
+use App\Filament\Resources\Species\Tables\SpeciesTable;
+use App\Models\Specie;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -18,9 +18,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class AnimalSpecieResource extends Resource
+class   SpecieResource extends Resource
 {
-    protected static ?string $model = AnimalSpecie::class;
+    protected static ?string $model = Specie::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
@@ -28,17 +28,17 @@ class AnimalSpecieResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return AnimalSpecieForm::configure($schema);
+        return SpecieForm::configure($schema);
     }
 
     public static function infolist(Schema $schema): Schema
     {
-        return AnimalSpecieInfolist::configure($schema);
+        return SpecieInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return AnimalSpeciesTable::configure($table);
+        return SpeciesTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -51,10 +51,10 @@ class AnimalSpecieResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListAnimalSpecies::route('/'),
-            'create' => CreateAnimalSpecie::route('/create'),
-            'view' => ViewAnimalSpecie::route('/{record}'),
-            'edit' => EditAnimalSpecie::route('/{record}/edit'),
+            'index' => ListSpecies::route('/'),
+            'create' => CreateSpecie::route('/create'),
+            'view' => ViewSpecie::route('/{record}'),
+            'edit' => EditSpecie::route('/{record}/edit'),
         ];
     }
 
